@@ -1,0 +1,86 @@
+﻿<Window x:Class="FitnessFlex.Invoice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitnessFlex"
+        mc:Ignorable="d"
+        Title="Invoice" Height="874" Width="1240" ResizeMode="NoResize">
+    <Grid x:Name="invoiceGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="memberName" HorizontalAlignment="Left" FontSize="32" Margin="10,137,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="684"/>
+        <TextBlock x:Name="memberPackage" HorizontalAlignment="Left" FontSize="30" FontWeight="Light" Margin="10,180,0,0" TextWrapping="Wrap" Text="Package" VerticalAlignment="Top" Width="250" Grid.RowSpan="2"/>
+        <TextBlock x:Name="memberId" HorizontalAlignment="Left" FontSize="34" FontWeight="Bold"  Margin="10,92,0,0" TextWrapping="Wrap" Text="Id" VerticalAlignment="Top" Width="960"/>
+        <TextBlock x:Name="dateToday" HorizontalAlignment="Left" FontSize="28" FontWeight="UltraLight"  Margin="10,23,0,0" TextWrapping="Wrap" Text="Date" VerticalAlignment="Top" Width="976" />
+        <TextBlock x:Name="gymAddress"  TextAlignment="Right" FontWeight="UltraLight" FontSize="22"  Margin="350,180,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2" Width="858"  ><Run Text="#14, I &amp; T Centre, New Islamabad Inn Hotel Basement,"/><LineBreak/><Run Text="Aabpara, Islamabad"/></TextBlock>
+        <TextBlock Text="(0331) 5470906"  FontWeight="UltraLight" FontSize="22" TextWrapping="Wrap"  VerticalAlignment="Top" Margin="1070,28,-1070,0" Grid.Row="1"    />
+
+
+        <Grid ShowGridLines="True"  x:Name="feeSummaryGrid" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="1212" Height="297" Margin="10,141,0,0" Grid.Row="1"  >
+            <Grid.RowDefinitions >
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition/>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label VerticalAlignment="Center" Content="Receipt No" FontSize="20" Grid.Column="0" Grid.Row="0" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="receiptNo"  Content="{Binding Id}" FontSize="20" Grid.Column="1" Grid.Row="0" Margin="5"/>
+            <Label VerticalAlignment="Center" Content="Paid Date" FontSize="20" Grid.Column="2" Grid.Row="0" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="paidDate"  Content="{Binding PaidDate}" FontSize="20" Grid.Column="3" Grid.Row="0" Margin="5"/>
+            <Label VerticalAlignment="Center" Content="Fee Plan" FontSize="20" Grid.Column="4" Grid.Row="0" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="feePlan"  Content="{Binding FeePlan}" FontSize="20" Grid.Column="5" Grid.Row="0" Margin="5"/>
+
+
+            <Label VerticalAlignment="Center" Content="Fee From" Grid.Row="1" Grid.Column="0" FontSize="20" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="feeFrom"  Content="{Binding From}" FontSize="20" Grid.Column="1" Grid.Row="1" Margin="5"/>
+            <Label VerticalAlignment="Center" Content="Fee To" Grid.Row="1" Grid.Column="2" FontSize="20" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="feeTo"  Content="{Binding To}" FontSize="20" Grid.Column="3" Grid.Row="1" Margin="5"/>
+            <Label VerticalAlignment="Center" Content="No. Of Months"  Grid.Row="1" Grid.Column="4" FontSize="20" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="noOfMonths"  Content="{Binding Mon}" FontSize="20" Grid.Column="5" Grid.Row="1" Margin="5"/>
+
+
+            <Label VerticalAlignment="Center" Content="Monthly Fee Total" Grid.Row="2" Grid.Column="0" FontSize="20" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="monthlyFeeTotal"  Content="{Binding MonthlyFeeTotal}" FontSize="20" Grid.Column="1" Grid.Row="2" Margin="5"/>
+            <Label VerticalAlignment="Center" Content="Previous Dues" Grid.Row="2" Grid.Column="2" FontSize="20" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="previousDues"  Content="{Binding PrevDues}" FontSize="20" Grid.Column="3" Grid.Row="2" Margin="5"/>
+            <Label VerticalAlignment="Center" Content="Personal Trainer Fee" Grid.Row="2" Grid.Column="4" FontSize="20" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="personalTrainerFee"  Content="{Binding PersonalTrainerFee}" FontSize="20" Grid.Column="5" Grid.Row="2" Margin="5"/>
+
+
+            <Label VerticalAlignment="Center" x:Name="admissionFeeCheck" Grid.Row="3" Grid.Column="0" Content="Admission Fee" FontSize="20" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="admissionFee"  Content="{Binding AdmissionFee}" FontSize="20" Grid.Column="1" Grid.Row="3" Margin="5"/>
+            <Label VerticalAlignment="Center" Content="Net Total" Grid.Row="3" Grid.Column="2" FontSize="20" FontWeight="DemiBold" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="netTotal"  Content="{Binding NetTotal}" FontSize="20" FontWeight="DemiBold" Grid.Column="3" Grid.Row="3" Margin="5"/>
+            <Label VerticalAlignment="Center" Content="Adjustment" Grid.Row="3" Grid.Column="4" FontSize="20" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="adjustment"  Content="{Binding Adjustment}" FontSize="20" Grid.Column="5" Grid.Row="3" Margin="5"/>
+
+
+            <Label VerticalAlignment="Center" Content="Total Fee To Be Paid" Grid.Row="4" Grid.Column="0" FontSize="20" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="toBePaid"  Content="{Binding ToBePaid}" FontSize="20" Grid.Column="1" Grid.Row="4" Margin="5"/>
+            <Label VerticalAlignment="Center" Content="Paid Amount" Grid.Row="4" Grid.Column="2" FontSize="20" FontWeight="Bold" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="paidAmount"  Content="{Binding Paid}" FontSize="20" Grid.Column="3" FontWeight="Bold" Grid.Row="4" Margin="5"/>
+            <Label VerticalAlignment="Center" Content="Fee Balance" FontWeight="DemiBold" Grid.Row="4" Grid.Column="4" FontSize="20" Margin="5"/>
+            <Label VerticalAlignment="Center" x:Name="feeBalance" FontWeight="DemiBold" Content="{Binding FeeBalance}" FontSize="20" Grid.Column="5" Grid.Row="4" Margin="5"/>
+
+        </Grid>
+        <Image HorizontalAlignment="Left" Height="175" Margin="970,10,0,0" Source="logo.png" Stretch="Fill" VerticalAlignment="Top" Width="262"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="836,578.5,0,0" VerticalAlignment="Top" Width="372" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="30" FontWeight="Light" Margin="986,577.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1"/>
+        <Button x:Name="printBtn" Content="Print" HorizontalAlignment="Left" Margin="1156,5,0,0" VerticalAlignment="Top" Width="76" Click="PrintInvoice"/>
+
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AppSettings>
+	<memberform>
+		<memberpackages>
+			<memberpackage cost="2500" Name="Silver" >Silver</memberpackage>
+			<memberpackage cost="3500" Name="Gold" >Gold</memberpackage>
+			<memberpackage cost="8000" Name="Platinum" >Platinum</memberpackage>
+		</memberpackages>
+	</memberform>
+	<admission>
+		<admissionfees>
+			<admissionfee cost="10000">10000</admissionfee>
+		</admissionfees>
+	</admission>
+	<feesummaryform>
+		<feeplans>
+			<feeplan  cost="2500" Name="Monthly"  >Monthly</feeplan>
+			<feeplan   cost="6000" Name="Quarterly">Quarterly</feeplan>
+			<feeplan   cost="8000" Name="Yearly">Yearly</feeplan>
+		</feeplans>
+	</feesummaryform>
+</AppSettings>

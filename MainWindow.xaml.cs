@@ -74,7 +74,7 @@ namespace FitnessFlex
             var winType = Activator.CreateInstance(t);
             Window newWin = (Window)winType;
             newWin.Show();
-            this.Hide();
+            //this.Hide();
             backStack.Push(this);
         }
         

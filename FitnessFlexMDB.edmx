@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FitnessFlexDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Fees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaidDate" Type="date" />
+          <Property Name="FeePlan" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="From" Type="date" Nullable="false" />
+          <Property Name="To" Type="date" Nullable="false" />
+          <Property Name="Mon" Type="int" Nullable="false" />
+          <Property Name="MonthlyFeeTotal" Type="int" />
+          <Property Name="PrevDues" Type="int" />
+          <Property Name="PersonalTrainerFee" Type="int" />
+          <Property Name="AdmissionFee" Type="int" />
+          <Property Name="NetTotal" Type="int" />
+          <Property Name="Adjustment" Type="int" />
+          <Property Name="ToBePaid" Type="int" />
+          <Property Name="Paid" Type="int" />
+          <Property Name="FeeBalance" Type="int" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Members">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Sex" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="255" />
+          <Property Name="Contact" Type="varchar" MaxLength="11" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="DOJ" Type="date" />
+          <Property Name="Package" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Balance" Type="int" />
+          <Property Name="DOE" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Fees_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="1" />
+          <End Role="Fees" Type="Self.Fees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Fees">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FitnessFlexDBModelStoreContainer">
+          <EntitySet Name="Fees" EntityType="Self.Fees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Fees_Members" Association="Self.FK_Fees_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Fees" EntitySet="Fees" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FitnessFlexDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Fee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaidDate" Type="DateTime" Precision="0" />
+          <Property Name="FeePlan" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="From" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="To" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Mon" Type="Int32" Nullable="false" />
+          <Property Name="MonthlyFeeTotal" Type="Int32" />
+          <Property Name="PrevDues" Type="Int32" />
+          <Property Name="PersonalTrainerFee" Type="Int32" />
+          <Property Name="AdmissionFee" Type="Int32" />
+          <Property Name="NetTotal" Type="Int32" />
+          <Property Name="Adjustment" Type="Int32" />
+          <Property Name="ToBePaid" Type="Int32" />
+          <Property Name="Paid" Type="Int32" />
+          <Property Name="FeeBalance" Type="Int32" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Member" Relationship="FitnessFlexDBModel.FK_Fees_Members" FromRole="Fee" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="DOJ" Type="DateTime" Precision="0" />
+          <Property Name="Package" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Balance" Type="Int32" />
+          <Property Name="DOE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Fees" Relationship="FitnessFlexDBModel.FK_Fees_Members" FromRole="Member" ToRole="Fee" />
+        </EntityType>
+        <EntityContainer Name="FitnessFlexDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Fees" EntityType="Self.Fee" />
+          <EntitySet Name="Members" EntityType="Self.Member" />
+          <AssociationSet Name="FK_Fees_Members" Association="FitnessFlexDBModel.FK_Fees_Members">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Fee" EntitySet="Fees" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_Fees_Members">
+          <End Type="FitnessFlexDBModel.Member" Role="Member" Multiplicity="1" />
+          <End Type="FitnessFlexDBModel.Fee" Role="Fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Fee">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FitnessFlexDBModelStoreContainer" CdmEntityContainer="FitnessFlexDB">
+          <EntitySetMapping Name="Fees">
+            <EntityTypeMapping TypeName="FitnessFlexDBModel.Fee">
+              <MappingFragment StoreEntitySet="Fees">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PaidDate" ColumnName="PaidDate" />
+                <ScalarProperty Name="FeePlan" ColumnName="FeePlan" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="Mon" ColumnName="Mon" />
+                <ScalarProperty Name="MonthlyFeeTotal" ColumnName="MonthlyFeeTotal" />
+                <ScalarProperty Name="PrevDues" ColumnName="PrevDues" />
+                <ScalarProperty Name="PersonalTrainerFee" ColumnName="PersonalTrainerFee" />
+                <ScalarProperty Name="AdmissionFee" ColumnName="AdmissionFee" />
+                <ScalarProperty Name="NetTotal" ColumnName="NetTotal" />
+                <ScalarProperty Name="Adjustment" ColumnName="Adjustment" />
+                <ScalarProperty Name="ToBePaid" ColumnName="ToBePaid" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="FeeBalance" ColumnName="FeeBalance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="FitnessFlexDBModel.Member">
+              <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="Package" ColumnName="Package" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="DOE" ColumnName="DOE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

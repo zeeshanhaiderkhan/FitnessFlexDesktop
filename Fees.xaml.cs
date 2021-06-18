@@ -19,9 +19,25 @@ namespace FitnessFlex
     /// </summary>
     public partial class Fees : Window
     {
+        FitnessFlexDB db = new FitnessFlexDB();
         public Fees()
         {
             InitializeComponent();
+            var query = from m in db.Members
+                        join f in db.Fees on m.Id equals f.MemberID
+                        select new
+                        {
+                           Receipt_ID= f.Id,
+                           Name =  m.Name,
+                           Phone =  m.Contact,
+                           Package = m.Package,
+                           Paid_Date =  f.PaidDate,
+                           Amount = f.ToBePaid,
+                           Paid =  f.Paid,
+                           Balance = f.FeeBalance
+                        };
+            this.feeDataGrid.ItemsSource = query.ToList();
         }
+
     }
 }

@@ -1,0 +1,36 @@
+﻿CREATE TABLE [dbo].[Table]
+(
+	[Id] INT NOT NULL IDENTITY ,
+	[Name] VARCHAR(100) NOT NULL,
+	[Sex] CHAR(1) NOT NULL,
+	[Address] varchar(255) DEFAULT NULL,
+	[Contact] varchar(11) DEFAULT NULL,
+	[DOB] date DEFAULT NULL,
+	[DOJ] date DEFAULT NULL,
+	[Package] varchar(100) NOT NULL,
+	[Balance] INT DEFAULT NULL,
+	[DOE] datetime DEFAULT current_timestamp, 
+    CONSTRAINT [PK_Table] PRIMARY KEY ([Id])
+
+)
+
+CREATE TABLE [dbo].[Fees]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[PaidDate] date default current_timestamp,
+	[FeePlan] varchar(100) NOT NULL,
+	[From] date NOT NULL,
+	[To] date NOT NULL,
+	[Mon] INT NOT NULL,
+	[MonthlyFeeTotal] INT,
+	[PrevDues] INT,
+	[PersonalTrainerFee] INT DEFAULT NULL,
+	[AdmissionFee] INT DEFAULT NULL,
+	[NetTotal] INT,
+	[Adjustment] INT DEFAULT NULL,
+	[ToBePaid] INT,
+	[Paid] INT,
+	[FeeBalance] INT
+
+
+)
