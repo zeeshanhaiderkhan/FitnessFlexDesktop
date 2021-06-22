@@ -27,5 +27,6 @@ namespace FitnessFlex
     
         public virtual DbSet<Fee> Fees { get; set; }
         public virtual DbSet<Member> Members { get; set; }
+        public virtual DbSet<Attendance> Attendances { get; set; }
     }
 }

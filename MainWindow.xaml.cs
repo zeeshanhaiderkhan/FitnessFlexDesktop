@@ -23,30 +23,13 @@ namespace FitnessFlex
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        public static Stack<Window> backStack = new Stack<Window>();
+        //public static Stack<Window> backStack = new Stack<Window>();
         public MainWindow()
         {
             InitializeComponent();
         }
-        private void LaunchGitHubSite(object sender, RoutedEventArgs e)
-        {
-            // Launch the GitHub site...
-        }
-
-        private void DeployCupCakes(object sender, RoutedEventArgs e)
-        {
-            // deploy some CupCakes...
-        }
-        public void ChangeTheme(object sender, RoutedEventArgs e)
-        {
-            if (this.themeTogg.IsOn)
-            {
-                ThemeManager.Current.ChangeTheme(this, "Light.Blue");
-            }
-            if(!this.themeTogg.IsOn) { 
-            ThemeManager.Current.ChangeTheme(this, "Dark.Yellow");
-            }
-        }
+        
+        
 
         public void ChangeRandom(object sender, RoutedEventArgs e)
         {
@@ -65,18 +48,70 @@ namespace FitnessFlex
             }
         }
 
-        
 
+        private void OpenMembers(object sender, RoutedEventArgs e)
+        {
+            Members newWin = new Members();
+            newWin.Show();
+        }
+        private void OpenFees(object sender, RoutedEventArgs e)
+        {
+            Fees newWin = new Fees();
+            newWin.Show();
+        }
+        private void OpenReports(object sender, RoutedEventArgs e)
+        {
+            Reports newWin = new Reports();
+            newWin.Show();
+        }
+        private void OpenDietPlans(object sender, RoutedEventArgs e)
+        {
+            Select_Gender newWin = new Select_Gender();
+            newWin.Show();
+        }
+        private void OpenWorkoutPlans(object sender, RoutedEventArgs e) 
+        {
+            Window newWin = new Exercise_plan.Workoutplan();
+            newWin.Show();
+        }
+        private void OpenAttendances(object sender, RoutedEventArgs e)
+        {
+            Attendances newWin = new Attendances();
+            newWin.Show();
+        }
+        /*
         private void OpenWindow(object sender, RoutedEventArgs e)
         {
+            if (((Tile)sender).Name.Equals("DietPlans")){
+                ((Tile)sender).Name = "Select_Gender";
+            }
+
+            
+
+            try { 
 
             Type t = Type.GetType(((string)"FitnessFlex."+(((Tile)sender).Name)));
+            
             var winType = Activator.CreateInstance(t);
             Window newWin = (Window)winType;
             newWin.Show();
+            //this.Close();
             //this.Hide();
-            backStack.Push(this);
+            //backStack.Push(this);
+            }
+            catch (Exception)
+            {
+                Window nw = new Exercise_plan.Workoutplan();
+                nw.Show();
+                //this.Close();
+            }
+        }*/
+
+        private void signOutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            LogIn li = new LogIn();
+            li.Show();
+            this.Close();
         }
-        
     }
 }

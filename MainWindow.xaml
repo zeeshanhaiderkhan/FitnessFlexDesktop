@@ -8,52 +8,22 @@
         xmlns:local="clr-namespace:FitnessFlex"
         mc:Ignorable="d"
         Title="FitnessFlex" Height="674.857" Width="1064.031">
-    <mah:MetroWindow.LeftWindowCommands>
-        <mah:WindowCommands>
-            <Button Click="LaunchGitHubSite" ToolTip="Open up the GitHub site">
-                <iconPacks:PackIconModern Width="22"
-                                  Height="22"
-                                  Kind="SocialGithubOctocat" />
-            </Button>
-        </mah:WindowCommands>
-    </mah:MetroWindow.LeftWindowCommands>
-
-    <mah:MetroWindow.RightWindowCommands>
-        <mah:WindowCommands>
-            <Button Click="DeployCupCakes" Content="Deploy CupCakes">
-                <Button.ContentTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <iconPacks:PackIconModern Width="22"
-                                        Height="22"
-                                        VerticalAlignment="Center"
-                                        Kind="FoodCupcake" />
-                            <TextBlock Margin="4 0 0 0"
-                         VerticalAlignment="Center"
-                         Text="{Binding}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </Button.ContentTemplate>
-            </Button>
-        </mah:WindowCommands>
-    </mah:MetroWindow.RightWindowCommands>
+   
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="205*"/>
             <ColumnDefinition Width="851*"/>
         </Grid.ColumnDefinitions>
         <Grid  VerticalAlignment="Top" Grid.ColumnSpan="2" >
-            <mah:Tile  Margin="5" Title="Zeeshan Haider Khan" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Center"  HorizontalAlignment="Left" Width="200" Height="60">
-            </mah:Tile>
-            <mah:Tile  Margin="229,5,0,5" Title="Change Theme Randomly" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Center"  HorizontalAlignment="Left" Width="200" Height="60" Click="ChangeRandom"  />
-            <mah:Tile  Margin="5" Title="Sign Out" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Center"  HorizontalAlignment="Right" Width="200" Height="60">
+           
+            <mah:Tile   x:Name="signOutBtn" Click="signOutBtn_Click" Title="Sign Out" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Center"  HorizontalAlignment="Right" Width="200" Height="60">
             </mah:Tile>
 
 
         </Grid>
-        <WrapPanel HorizontalAlignment="Center"  Margin="13,172" VerticalAlignment="Center" Grid.ColumnSpan="2">
+        <WrapPanel HorizontalAlignment="Center"  Margin="13,172" VerticalAlignment="Top" Grid.ColumnSpan="2">
 
-            <mah:Tile  Margin="5" Title="Members" Name="Members" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Width="300" Click="OpenWindow" >
+            <mah:Tile  Margin="5" Title="Members" Name="Members" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Width="300" Click="OpenMembers" >
                 <iconPacks:PackIconModern Width="40"
                               Height="40"
                               Kind="Group" />
@@ -63,28 +33,28 @@
 
 
 
-            <mah:Tile Margin="5" Title="Fees" Name="Fees" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Width="300"  Click="OpenWindow">
+            <mah:Tile Margin="5" Title="Fees" Name="Fees" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Width="300"  Click="OpenFees">
                 <iconPacks:PackIconModern Width="40"
                               Height="40"
                               Kind="Money" />
 
 
             </mah:Tile>
-            <mah:Tile   Margin="5" Title="Attendance" Name="Attendance"  HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Width="300" Click="OpenWindow">
+            <mah:Tile   Margin="5" Title="Attendance" Name="Attendances"  HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Width="300" Click="OpenAttendances">
                 <iconPacks:PackIconModern Width="40"
                               Height="40"
                               Kind="BookOpen" />
 
 
             </mah:Tile>
-            <mah:Tile   Margin="5" Title="Diet Plans" Name="DietPlans"  HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Width="300" Click="OpenWindow">
+            <mah:Tile   Margin="5" Title="Diet Plans" Name="DietPlans"  HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Width="300" Click="OpenDietPlans">
                 <iconPacks:PackIconModern Width="40"
                               Height="40"
                               Kind="Database" />
 
 
             </mah:Tile>
-            <mah:Tile   Margin="5" Title="Workout Plans" Name="WorkoutPlans" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Width="300" Click="OpenWindow">
+            <mah:Tile   Margin="5" Title="Workout Plans" Name="WorkoutPlans" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Width="300" Click="OpenWorkoutPlans">
                 <iconPacks:PackIconModern Width="40"
                               Height="40"
                               Kind="ManWalk" />
@@ -92,7 +62,7 @@
 
             </mah:Tile>
 
-            <mah:Tile   Margin="5" Title="Reports" Name="Reports" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Click="OpenWindow" >
+            <mah:Tile   Margin="5" Title="Reports" Name="Reports" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Width="300" Click="OpenReports" >
                 <iconPacks:PackIconModern Width="40"
                               Height="40"
                               Kind="Page" />
@@ -100,15 +70,6 @@
 
             </mah:Tile>
 
-            <mah:Tile   Margin="5" Title="Settings" Name="Settings" HorizontalTitleAlignment="Center" VerticalTitleAlignment="Bottom" Width="150" Click="OpenWindow">
-                <iconPacks:PackIconModern Width="40"
-                              Height="40"
-                              Kind="Settings" />
-
-
-            </mah:Tile>
-
         </WrapPanel>
-        <mah:ToggleSwitch x:Name="themeTogg" Header="" HorizontalAlignment="Left" Height="100" Margin="200.071,70,0,0" VerticalAlignment="Top" Width="100" Toggled="ChangeTheme" Grid.Column="1" />
     </Grid>
 </mah:MetroWindow>

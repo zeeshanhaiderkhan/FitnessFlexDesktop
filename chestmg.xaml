@@ -1,0 +1,27 @@
+﻿<Window x:Class="Exercise_plan.chestmg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exercise_plan"
+        mc:Ignorable="d"
+        Title="chestmg" Height="450" Width="800">
+    <Grid>
+        <Image Margin="414,24,19,192" Source="chest-cable-cross-3-490x322.jpg" Stretch="Fill" RenderTransformOrigin="0.497,0.532">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.822"/>
+                    <RotateTransform Angle="0.891"/>
+                    <TranslateTransform X="-1.772" Y="-0.043"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="36,44,458,183" Source="best-chest-workout 1.jpg" Stretch="Fill"/>
+        <Image Margin="36,241,483,10" Source="chest-incline-dumbbellpress-3-490x410.jpg" Stretch="Fill"/>
+        <Image Margin="446,241,44,27" Source="chest-chest-dips-490x285.jpg" Stretch="Fill"/>
+        <Label Content="Chest 12 x 3 Reps" HorizontalAlignment="Left" Margin="301,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" FontStyle="Italic"/>
+        <Button Content="Back" x:Name="backbtn" HorizontalAlignment="Left" Width="75" Click="backbtn_Click" Margin="0,0,0,399"/>
+
+    </Grid>
+</Window>

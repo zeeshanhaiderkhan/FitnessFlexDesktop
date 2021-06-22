@@ -1,0 +1,44 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitnessFlex"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="FitnessFlex.MaleGainDietPlan"
+        mc:Ignorable="d"
+        Title="MaleGainDietPlan" Height="450" Width="800">
+    <Grid>
+        <Label Content="Diet Plan for a Male to Gain Weight" VerticalAlignment="Top" Height="45" Margin="0,0,98.6,0" FontWeight="Bold" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <Label.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.BorderBrush>
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FF948000" Offset="0.8"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <DataGrid  RowHeight="77" Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue" GridLinesVisibility="All" HeadersVisibility="All" AutoGenerateColumns="True" x:Name="MealName" Margin="0,50,0.6,0"  />
+        <Button Content="Save as pdf" x:Name="save_pdf" Margin="0,0,-0.4,0" MinHeight="0" HorizontalAlignment="Right" Width="104"   Height="45" VerticalAlignment="Top" FontFamily="Segoe UI" FontSize="11" BorderBrush="Black" Click="save_pdf_Click" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FF948000" Offset="0.8"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button Content="Back" x:Name="back" MinHeight="0" FontFamily="Segoe UI" FontSize="11" BorderBrush="Black" Height="45" VerticalAlignment="Top" HorizontalAlignment="Left" Width="75" Click="back_Click"  >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FF948000" Offset="0.8"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>

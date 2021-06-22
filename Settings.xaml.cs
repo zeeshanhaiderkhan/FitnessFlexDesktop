@@ -43,7 +43,7 @@ namespace FitnessFlex
 
         public void BackButton(object sender, RoutedEventArgs e)
         {
-            MainWindow.backStack.Pop().Show();
+            //MainWindow.backStack.Pop().Show();
             this.Close();
         }
     }

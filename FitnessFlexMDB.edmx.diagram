@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="FitnessFlexDBModel.Fee" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FitnessFlexDBModel.Member" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="FitnessFlexDBModel.FK_Fees_Members" />
+        <EntityTypeShape EntityType="FitnessFlexDBModel.Attendance" Width="1.5" PointX="5" PointY="1.5" />
+        <AssociationConnector Association="FitnessFlexDBModel.FK_Attendance_Members" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

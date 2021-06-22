@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:FitnessFlex"
         mc:Ignorable="d"
         Title="Reports" Height="450" Width="800">
-    <Grid>
-        
+    <Grid >
+
+        <DatePicker VerticalContentAlignment="Center" FontSize="18" x:Name="startDate" Margin="283,113,287,264" />
+        <Label Content="Start Date" FontSize="18" FontWeight="DemiBold" Margin="121,113,551,263" />
+        <Button x:Name="getReports" Content="Get Reports" FontSize="18" Margin="283,269,288,91" Click="getReports_Click"/>
+        <DatePicker VerticalContentAlignment="Center" FontSize="18" x:Name="endDate" Margin="283,157,288,220" />
+        <Label Content="End Date" FontSize="18" FontWeight="DemiBold" Margin="121,161,567,220" />
+        <RadioButton x:Name="feeRad" Content="Fees" GroupName="radBtn"  FontSize="18" FontWeight="SemiBold" Margin="283,215,441,167"/>
+        <RadioButton x:Name="membersRad" Content="Members" GroupName="radBtn" FontSize="18" FontWeight="SemiBold" Margin="356,215,326,167"/>
+        <Label Content="Report Type" FontSize="18" FontWeight="DemiBold" Margin="121,215,531,155" />
+        <Label Content="Select the desired Options to generate Reports!" FontSize="18" FontWeight="SemiBold" Background="Yellow" HorizontalAlignment="Left" Margin="139,49,0,0" VerticalAlignment="Top" Height="37" Width="407"/>
     </Grid>
 </Window>

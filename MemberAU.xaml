@@ -90,7 +90,7 @@
             <TextBox Name="previousDues" PreviewTextInput="PreviewText" Grid.Row="2" Grid.Column="3" Margin="5" Width="120" />
             <Label Content="Personal Trainer Fee" Grid.Row="2" Grid.Column="4" FontSize="15" Margin="5"/>
             <TextBox x:Name="personalTrainer" PreviewTextInput="PreviewText" Grid.Row="2" Grid.Column="5" Margin="5" Width="120" />
-            <CheckBox x:Name="admissionFeeCheck" Grid.Row="3" Grid.Column="0" Content="Admission Fee" FontSize="15" Margin="5"/>
+            <TextBlock x:Name="admissionFeeCheck" Grid.Row="3" Grid.Column="0" Text="Admission Fee" FontSize="15" Margin="5"/>
             <TextBox Name="admissionFee" PreviewTextInput="PreviewText" Grid.Row="3" Grid.Column="1" Margin="5" Width="120" />
             <Label Content="Net Total" Grid.Row="3" Grid.Column="2" FontSize="15" Margin="5"/>
             <TextBox Name="netTotal" PreviewTextInput="PreviewText" Grid.Row="3" Grid.Column="3" Margin="5" Width="120" />
@@ -123,12 +123,23 @@
         <Grid Grid.Row="3">
 
             <StackPanel>
-                <WrapPanel>
-                    <Button Content="Edit Fee" Margin="10"  Height="40"  Click="EditFee" Width="70"/>
-                    <Button Content="Save Fee" Height="40"  Click="SaveFee" Width="70"/>
+                <WrapPanel Margin="0,0,429,0">
+                    <Button Content="Edit Fee" Margin="10"  Height="40" x:Name="editBtn"  Click="EditFee" Width="70"/>
+                    <Button Content="Save Fee" Height="40" Margin="10" x:Name="saveBtn"  Click="SaveFee" Width="70"/>
+                    <Button Content="Delete Fee" Height="40" Margin="10" x:Name="deleteBtn"  Click="DeleteFee" Width="70"/>
+                    <Button Content="Add New Fee" Height="40" Background="BlueViolet" Click="AddNewFee" x:Name="addNewBtn" HorizontalAlignment="Right" Width="115" Foreground="#FFECECEC"/>
                 </WrapPanel>
-               
-                <DataGrid x:Name="feesDataGrid" />
+
+                <DataGrid x:Name="feesDataGrid" Height="288"  AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Id}" Header="Invoice ID"/>
+                        <DataGridTextColumn Binding="{Binding PaidDate}" Header="Paid Date"/>
+                        <DataGridTextColumn Binding="{Binding NetTotal}" Header="Net Total"/>
+                        <DataGridTextColumn Binding="{Binding Adjustment}" Header="Adjustment"/>
+                        <DataGridTextColumn Binding="{Binding Paid}" FontWeight="Bold" Header="Paid Amount"/>
+                    </DataGrid.Columns>
+                    
+                </DataGrid>
             </StackPanel>
         </Grid>
     </Grid>

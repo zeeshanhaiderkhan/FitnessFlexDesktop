@@ -18,9 +18,12 @@ namespace FitnessFlex
         public Member()
         {
             this.Fees = new HashSet<Fee>();
+            this.Attendances = new HashSet<Attendance>();
+            
         }
     
         public int Id { get; set; }
+       // public string Image = "GenderMale";
         public string Name { get; set; }
         public string Sex { get; set; }
         public string Address { get; set; }
@@ -33,12 +36,24 @@ namespace FitnessFlex
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Fee> Fees { get; set; }
-
-        
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Attendance> Attendances { get; set; }
         public static string SexConverter(bool booleanValue)
         {
             if (booleanValue) return 1.ToString();
             else return 0.ToString();
         }
+       /* public void setImage()
+        {
+            if (Sex.Equals("1"))
+            {
+                Image = "GenderMale";
+
+            }
+            else
+            {
+                Image = "GenderFemale";
+            }
+        }*/
     }
 }

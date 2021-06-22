@@ -68,7 +68,6 @@ namespace FitnessFlex
             Member m = (Member)memberList.SelectedItem;
 
             MemberAU add = new MemberAU(true, m);
-            MessageBox.Show(add.newMember.Id.ToString());
             add.Show();
             }
             else
@@ -83,7 +82,9 @@ namespace FitnessFlex
         {
             if (memberList.SelectedItem != null)
             {
-                foreach (Fee f in db.Fees.ToList().Where(fee => fee.MemberID.Equals(((Member)this.memberList.SelectedItem).Id)))
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Member", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes) { 
+                    foreach (Fee f in db.Fees.ToList().Where(fee => fee.MemberID.Equals(((Member)this.memberList.SelectedItem).Id)))
                 {
                     db.Fees.Remove(f);
                 }
@@ -91,6 +92,8 @@ namespace FitnessFlex
                 db.Members.Remove((Member)this.memberList.SelectedItem);
                 db.SaveChanges();
                 this.Refresh(new object(), new RoutedEventArgs());
+                }
+
             }
             else
             {
@@ -119,5 +122,6 @@ namespace FitnessFlex
             this.Search(sender, new RoutedEventArgs());
         }
 
+        
     }
 }

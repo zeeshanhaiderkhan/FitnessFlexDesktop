@@ -12,16 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace FitnessFlex
+namespace Exercise_plan
 {
     /// <summary>
-    /// Interaction logic for WorkoutPlans.xaml
+    /// Interaction logic for armfg.xaml
     /// </summary>
-    public partial class WorkoutPlans : Window
+    public partial class armfg : Window
     {
-        public WorkoutPlans()
+        public armfg()
         {
             InitializeComponent();
+        }
+        private void backbtn_Click(object sender, RoutedEventArgs e)
+        {
+            femalegain fg = new femalegain();
+            this.Close();
+            fg.Show();
         }
     }
 }

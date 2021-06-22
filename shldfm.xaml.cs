@@ -12,16 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace FitnessFlex
+namespace Exercise_plan
 {
     /// <summary>
-    /// Interaction logic for Attendance.xaml
+    /// Interaction logic for shldfm.xaml
     /// </summary>
-    public partial class Attendance : Window
+    public partial class shldfm : Window
     {
-        public Attendance()
+        public shldfm()
         {
             InitializeComponent();
         }
+
+        private void backbtn_Click(object sender, RoutedEventArgs e)
+        {
+            female_mantain fm = new female_mantain();
+            this.Close();
+            fm.Show();
+        }
+
     }
 }

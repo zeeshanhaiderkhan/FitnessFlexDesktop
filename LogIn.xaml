@@ -1,0 +1,65 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitnessFlex"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="FitnessFlex.LogIn"
+        mc:Ignorable="d"
+        Title="LogIn" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Margin="0.2,0,-0.4,-1" Opacity="0.97" Grid.RowSpan="5" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource="gym2.jpg" Opacity="0.9"/>
+            </Grid.Background>
+            <Label Content=" FITNESS&#xA;    FLEX" Margin="78,22,81,225.8" Background="{x:Null}" FontSize="48"  FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF948000" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+        </Grid>
+        <Label Content="C O M M I T   T O   B E     F I T" Margin="63.2,8.2,23.6,6"  Background="{x:Null}" FontSize="18" FontStretch="Expanded" FontWeight="Bold" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF948000" Offset="0.221"/>
+                    <GradientStop Color="White" Offset="0.824"/>
+                    <GradientStop Color="#FF958103"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Grid Margin="30,0,86.8,0.6">
+            <Grid.Background>
+                <ImageBrush ImageSource="logo.png"/>
+            </Grid.Background>
+        </Grid>
+        <Label Content="Sign In" Margin="135,8.4,176.8,11.8" RenderTransformOrigin="-0.135,-0.984" FontSize="22" FontWeight="Bold" Foreground="Black" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox Margin="45,10.2,51.8,19" x:Name="email" TextWrapping="Wrap" Text="Email" FontSize="16" TextDecorations="{x:Null}" Opacity="0.5" BorderThickness="0,0,0,2" Padding="0,5,0,0" Grid.Row="2" GotFocus="Email_focus"/>
+        <PasswordBox Margin="45,2,51.8,27.2" x:Name="pwd"  FontSize="16" Opacity="0.5" BorderThickness="0,0,0,2" Padding="0,5,0,0" Grid.Row="3" GotFocus="password_focus" Password="password" KeyDown="pwd_KeyDown" />
+        <Border CornerRadius="12" BorderBrush="#FFDCDD39" BorderThickness="1" Margin="113,29.8,141.8,38" Background="#FFDCDD39" Grid.Row="4" Width="142" Height="37" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="sigInBtn" Content="Sign In" FontSize="14" FontWeight="Bold" Background="#FFDCDD39" BorderThickness="0" Margin="6.2,-0.8,8,1" Height="35" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="89" mah:ControlsHelper.ContentCharacterCasing="Normal" Click="sigInBtn_Click"/>
+        </Border>
+
+    </Grid>
+</Window>

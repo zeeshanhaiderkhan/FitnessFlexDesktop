@@ -35,7 +35,7 @@ namespace FitnessFlex
             InitializeComponent();
             newMember = m;
             //this.ReceiptGen.IsEnabled = false;
-            if (CustomSettings.LoadFile() && !update)
+            if (CustomSettings.LoadFile() )
             {
                 this.membership.ItemsSource = CustomSettings.GetPackages();
                 this.feePlan.ItemsSource = CustomSettings.GetFeePlans();
@@ -90,15 +90,20 @@ namespace FitnessFlex
                     Paid = fee.Paid,
                     Balance = fee.FeeBalance
                 });*/
-                this.feesDataGrid.ItemsSource = db.Fees.ToList().Where(membId => membId.MemberID == this.newMember.Id);
+                RefreshFeesData();
+            }
+            else
+            {
+                this.addNewBtn.Visibility = Visibility.Hidden;
+                this.editBtn.Visibility = Visibility.Hidden;
+                this.saveBtn.Visibility = Visibility.Hidden;
+                this.deleteBtn.Visibility = Visibility.Hidden;
+                this.Height = 520;
             }
 
         }
 
-        private void FeeSelect(object sender, MouseButtonEventArgs e)
-        {
-
-        }
+        
         public async void AddMemberAsync()
         {
             if(string.IsNullOrEmpty(memberName.Text) || string.IsNullOrEmpty(membership.Text) || string.IsNullOrEmpty(phone.Text))
@@ -144,7 +149,8 @@ namespace FitnessFlex
         }
         private bool AddMemberFee(int memId)
         {
-            try { 
+            try {
+                //memId =int.Parse(this.memberId.Text);
             fee = new Fee()
             {
                 //Id = int.Parse(receiptNo.Text),
@@ -190,7 +196,7 @@ namespace FitnessFlex
 
         private void EditFee(object sender, RoutedEventArgs e)
         {
-
+            try { 
 
             Fee selectedRow = (Fee)this.feesDataGrid.SelectedItem;
             fee = selectedRow;
@@ -214,6 +220,11 @@ namespace FitnessFlex
             this.totalFeeToPaid.Text = selectedRow.ToBePaid.ToString();
             this.paidAmount.Text = selectedRow.Paid.ToString();
             this.feeBalance.Text = selectedRow.FeeBalance.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Oops! Something Fishy!");
+            }
         }
 
         private void SaveEditMember(object sender, RoutedEventArgs e)
@@ -230,7 +241,7 @@ namespace FitnessFlex
         }
         private void SaveFee(object sender, RoutedEventArgs e)
         {
-
+            try { 
 
             //Id = int.Parse(receiptNo.Text),
             fee.PaidDate = paidDate.SelectedDate.Value.Date;
@@ -247,16 +258,61 @@ namespace FitnessFlex
             fee.ToBePaid = int.Parse(totalFeeToPaid.Text);
             fee.Paid = int.Parse(paidAmount.Text);
             fee.FeeBalance = int.Parse(feeBalance.Text);
-            //fee.MemberID = memId;
-            db.SaveChanges();
+                RefreshFeesData();
+                //fee.MemberID = memId;
+                db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Oops! Looks Like Something fishy!");
+            }
+
         }
         private void SaveAll(object sender,RoutedEventArgs e)
         {
             this.SaveEditMember(sender, new RoutedEventArgs());
             this.SaveFee(sender, new RoutedEventArgs());
-
+            RefreshFeesData();
         }
 
+        private void AddNewFee(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Add Member", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                AddMemberFee(int.Parse(this.memberId.Text));
+                RefreshFeesData();
+            }
+            else
+            {
+                
+            }
+
+        }
+        public void RefreshFeesData()
+        {
+          //  this.feesDataGrid.Columns[0].Visibility = Visibility.Hidden;
+            this.feesDataGrid.ItemsSource = db.Fees.ToList().Where(membId => membId.MemberID == this.newMember.Id);
+        }
+        public void DeleteFee(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                object itm = this.feesDataGrid.SelectedItem;
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Add Member", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    db.Fees.Remove((Fee)itm);
+                    db.SaveChanges();
+                    RefreshFeesData();
+
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("No Fee Selected!");
+            }
+        }
     }
 }
  

@@ -1,0 +1,30 @@
+﻿<Window x:Class="Exercise_plan.Workoutplan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exercise_plan"
+        mc:Ignorable="d"
+        Title="Workout Plan" Height="450" Width="800">
+    <Grid>
+        <Button Content="Loose Fat" Background="Yellow" HorizontalAlignment="Left" Margin="39,193,0,0" VerticalAlignment="Top" Width="185" Height="120" FontSize="24"
+                Click="FatClick">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Mantain" HorizontalAlignment="Left" Background="Yellow" Margin="564,193,0,0" VerticalAlignment="Top" Width="185" Height="120" FontSize="24" BorderThickness="1" Click="Mantain_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Gain Muscle" Background="Yellow" HorizontalAlignment="Left" Margin="299,193,0,0" VerticalAlignment="Top" Width="185" Height="120" FontSize="24" Click="Gain_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Label Content="Choose Your Goal" HorizontalAlignment="Left" Margin="251,91,0,0" VerticalAlignment="Top" Height="97" Width="357" FontSize="36" FontFamily="Segoe UI Semilight" AutomationProperties.IsOffscreenBehavior="Onscreen"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" x:Name="backBtn" Click="backBtn_Click"/>
+
+    </Grid>
+</Window>

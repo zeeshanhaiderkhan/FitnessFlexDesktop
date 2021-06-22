@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="FitnessFlexDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="int" />
+          <Property Name="DOE" Type="datetime" />
+        </EntityType>
         <EntityType Name="Fees">
           <Key>
             <PropertyRef Name="Id" />
@@ -41,6 +49,18 @@
           <Property Name="Balance" Type="int" />
           <Property Name="DOE" Type="datetime" />
         </EntityType>
+        <Association Name="FK_Attendance_Members">
+          <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Members">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Fees_Members">
           <End Role="Members" Type="Self.Members" Multiplicity="1" />
           <End Role="Fees" Type="Self.Fees" Multiplicity="*" />
@@ -54,8 +74,13 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="FitnessFlexDBModelStoreContainer">
+          <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fees" EntityType="Self.Fees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Attendance_Members" Association="Self.FK_Attendance_Members">
+            <End Role="Members" EntitySet="Members" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
           <AssociationSet Name="FK_Fees_Members" Association="Self.FK_Fees_Members">
             <End Role="Members" EntitySet="Members" />
             <End Role="Fees" EntitySet="Fees" />
@@ -102,6 +127,7 @@
           <Property Name="Balance" Type="Int32" />
           <Property Name="DOE" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Fees" Relationship="FitnessFlexDBModel.FK_Fees_Members" FromRole="Member" ToRole="Fee" />
+          <NavigationProperty Name="Attendances" Relationship="FitnessFlexDBModel.FK_Attendance_Members" FromRole="Member" ToRole="Attendance" />
         </EntityType>
         <EntityContainer Name="FitnessFlexDB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Fees" EntityType="Self.Fee" />
@@ -109,6 +135,11 @@
           <AssociationSet Name="FK_Fees_Members" Association="FitnessFlexDBModel.FK_Fees_Members">
             <End Role="Member" EntitySet="Members" />
             <End Role="Fee" EntitySet="Fees" />
+          </AssociationSet>
+          <EntitySet Name="Attendances" EntityType="FitnessFlexDBModel.Attendance" />
+          <AssociationSet Name="FK_Attendance_Members" Association="FitnessFlexDBModel.FK_Attendance_Members">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Attendance" EntitySet="Attendances" />
           </AssociationSet>
         </EntityContainer>
         <Association Name="FK_Fees_Members">
@@ -119,6 +150,27 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Fee">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="Int32" />
+          <Property Name="DOE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Member" Relationship="FitnessFlexDBModel.FK_Attendance_Members" FromRole="Attendance" ToRole="Member" />
+        </EntityType>
+        <Association Name="FK_Attendance_Members">
+          <End Type="FitnessFlexDBModel.Member" Role="Member" Multiplicity="0..1" />
+          <End Type="FitnessFlexDBModel.Attendance" Role="Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attendance">
               <PropertyRef Name="MemberID" />
             </Dependent>
           </ReferentialConstraint>
@@ -164,6 +216,15 @@
                 <ScalarProperty Name="Package" ColumnName="Package" />
                 <ScalarProperty Name="Balance" ColumnName="Balance" />
                 <ScalarProperty Name="DOE" ColumnName="DOE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attendances">
+            <EntityTypeMapping TypeName="FitnessFlexDBModel.Attendance">
+              <MappingFragment StoreEntitySet="Attendance">
+                <ScalarProperty Name="DOE" ColumnName="DOE" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

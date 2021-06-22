@@ -189,18 +189,93 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Attendance.xaml.cs">
-      <DependentUpon>Attendance.xaml</DependentUpon>
+    <Compile Include="armfg.xaml.cs">
+      <DependentUpon>armfg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="armfl.xaml.cs">
+      <DependentUpon>armfl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="armfm.xaml.cs">
+      <DependentUpon>armfm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="armmg.xaml.cs">
+      <DependentUpon>armmg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="armml.xaml.cs">
+      <DependentUpon>armml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="armmm.xaml.cs">
+      <DependentUpon>armmm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Attendance.cs">
+      <DependentUpon>FitnessFlexMDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Attendances.xaml.cs">
+      <DependentUpon>Attendances.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="backfg.xaml.cs">
+      <DependentUpon>backfg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="backfl.xaml.cs">
+      <DependentUpon>backfl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="backfm.xaml.cs">
+      <DependentUpon>backfm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="backmg.xaml.cs">
+      <DependentUpon>backmg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="backml.xaml.cs">
+      <DependentUpon>backml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="backmm.xaml.cs">
+      <DependentUpon>backmm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chestfg.xaml.cs">
+      <DependentUpon>chestfg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chestfl.xaml.cs">
+      <DependentUpon>chestfl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chestfm.xaml.cs">
+      <DependentUpon>chestfm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chestmg.xaml.cs">
+      <DependentUpon>chestmg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chestml.xaml.cs">
+      <DependentUpon>chestml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="chestmm.xaml.cs">
+      <DependentUpon>chestmm.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomSettings.cs" />
     <Compile Include="DietPlans.xaml.cs">
       <DependentUpon>DietPlans.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FatSelect.xaml.cs">
+      <DependentUpon>FatSelect.xaml</DependentUpon>
     </Compile>
     <Compile Include="Fee.cs">
       <DependentUpon>FitnessFlexMDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Fees.xaml.cs">
       <DependentUpon>Fees.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="femalegain.xaml.cs">
+      <DependentUpon>femalegain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FemaleGainDietPlan.xaml.cs">
+      <DependentUpon>FemaleGainDietPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FemaleLooseDietPlan.xaml.cs">
+      <DependentUpon>FemaleLooseDietPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="femalelose.xaml.cs">
+      <DependentUpon>femalelose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="female_mantain.xaml.cs">
+      <DependentUpon>female_mantain.xaml</DependentUpon>
     </Compile>
     <Compile Include="FitnessFlexMDB.Context.cs">
       <AutoGen>True</AutoGen>
@@ -217,8 +292,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FitnessFlexMDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="gainselect.xaml.cs">
+      <DependentUpon>gainselect.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Invoice.xaml.cs">
       <DependentUpon>Invoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn.xaml.cs">
+      <DependentUpon>LogIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="malegain.xaml.cs">
+      <DependentUpon>malegain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MaleGainDietPlan.xaml.cs">
+      <DependentUpon>MaleGainDietPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MaleLooseDietPlan.xaml.cs">
+      <DependentUpon>MaleLooseDietPlan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="malelose.xaml.cs">
+      <DependentUpon>malelose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="male_mantain.xaml.cs">
+      <DependentUpon>male_mantain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MantainSelect.xaml.cs">
+      <DependentUpon>MantainSelect.xaml</DependentUpon>
     </Compile>
     <Compile Include="Member.cs">
       <DependentUpon>FitnessFlexMDB.tt</DependentUpon>
@@ -232,27 +331,152 @@
     <Compile Include="Reports.xaml.cs">
       <DependentUpon>Reports.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Select_Gender.xaml.cs">
+      <DependentUpon>Select_Gender.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WorkoutPlans.xaml.cs">
-      <DependentUpon>WorkoutPlans.xaml</DependentUpon>
+    <Compile Include="shldfg.xaml.cs">
+      <DependentUpon>shldfg.xaml</DependentUpon>
     </Compile>
-    <Page Include="Attendance.xaml">
+    <Compile Include="shldfl.xaml.cs">
+      <DependentUpon>shldfl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="shldfm.xaml.cs">
+      <DependentUpon>shldfm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="shldmg.xaml.cs">
+      <DependentUpon>shldmg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="shldml.xaml.cs">
+      <DependentUpon>shldml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="shldmm.xaml.cs">
+      <DependentUpon>shldmm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Workoutplan.xaml.cs">
+      <DependentUpon>Workoutplan.xaml</DependentUpon>
+    </Compile>
+    <Page Include="armfg.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="armfl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="armfm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="armmg.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="armml.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="armmm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Attendances.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="backfg.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="backfl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="backfm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="backmg.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="backml.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="backmm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="chestfg.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="chestfl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="chestfm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="chestmg.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="chestml.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="chestmm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DietPlans.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FatSelect.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Fees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="femalegain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FemaleGainDietPlan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FemaleLooseDietPlan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="femalelose.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="female_mantain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="gainselect.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Invoice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LogIn.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -266,6 +490,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="malegain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MaleGainDietPlan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MaleLooseDietPlan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="malelose.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="male_mantain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MantainSelect.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MemberAU.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -278,13 +526,41 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Select_Gender.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WorkoutPlans.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="shldfg.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="shldfl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="shldfm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="shldmg.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="shldml.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="shldmm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Workoutplan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -322,8 +598,34 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="pull-ups-home-back-workout-490x434.jpg" />
+    <Resource Include="rope-bicep-curls.gif" />
+    <Resource Include="shoulder-seated-d-press-490x381.jpg" />
+    <Resource Include="shoulders-bent-over-side-raises-490x278 %281%29.jpg" />
+    <Resource Include="shoulders-bent-over-side-raises-490x278.jpg" />
+    <Resource Include="shoulders-d-side-raises-490x391.jpg" />
+    <Resource Include="shoulders-seated-b-press-490x317.jpg" />
+    <Resource Include="shoulders-upright-b-rows-490x307.jpg" />
+    <Resource Include="two-dumbbell-extensions.gif" />
+    <Resource Include="MicrosoftTeams-image.png" />
+    <Resource Include="gym2.jpg" />
     <Resource Include="logo.png" />
     <Resource Include="AppSettings.xml" />
+    <Resource Include="back-b-rows-490x257.jpg" />
+    <Resource Include="back-bridge-490x214.jpg" />
+    <Resource Include="back-d-lat-rows-490x280.jpg" />
+    <Resource Include="back-superman-stretch-490x257.jpg" />
+    <Resource Include="best-chest-workout 1.jpg" />
+    <Resource Include="bicep-b-preacher-curls-490x259.jpg" />
+    <Resource Include="bicep-hammer-curls-490x490 %281%29.jpg" />
+    <Resource Include="bicep-hammer-curls-490x490.jpg" />
+    <Resource Include="biceps-b-curls-490x299.jpg" />
+    <Resource Include="chest-cable-cross-3-490x322.jpg" />
+    <Resource Include="chest-chest-dips-490x285.jpg" />
+    <Resource Include="chest-d-flyes-490x251.jpg" />
+    <Resource Include="chest-incline-dumbbellpress-3-490x410.jpg" />
+    <Resource Include="dumbbell-front-shoulder-raises-490x330.jpg" />
+    <Resource Include="dumbbell-kickbacks.gif" />
     <Content Include="FitnessFlexDB.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
